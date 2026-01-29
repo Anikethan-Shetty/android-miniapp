@@ -11,20 +11,11 @@ commands:
           set -e
           git submodule update --init
 
-executors:
-  android-executor:
-    docker:
-      - image: cimg/android:2024.01.1-node
-    resource_class: large
-    environment:
-      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
-
 workflows:
   version: 2.1
   build-and-release:
     jobs:
       - android-sdk/build:
-          executor: android-executor
           gradle-cache-key: >-
             gradle-
             {{ checksum "build.gradle" }}

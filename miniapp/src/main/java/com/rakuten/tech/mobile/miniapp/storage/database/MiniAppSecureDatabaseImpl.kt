@@ -70,7 +70,7 @@ internal abstract class MiniAppSecureDatabaseImpl(
      * The passcode will be the MiniAppId which is the database name too.
      */
     private fun getSqliteOpenHelperFactory(): SupportSQLiteOpenHelper.Factory {
-        return SQLCipherSupportFactory(
+        return net.zetetic.database.sqlcipher.SupportOpenHelperFactory(
             MiniAppDatabaseEncryptionUtil.encryptPasscode(
                 context,
                 dbName // DB_NAME will be the passcode too.
