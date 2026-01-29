@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import androidx.annotation.NonNull
 import androidx.annotation.VisibleForTesting
 import androidx.sqlite.db.SupportSQLiteDatabase
-import net.sqlcipher.database.SQLiteFullException
+import android.database.sqlite.SQLiteFullException
 import java.io.IOException
 import java.sql.SQLException
 import java.util.stream.Collectors

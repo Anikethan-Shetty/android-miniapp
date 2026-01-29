@@ -23,7 +23,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.rakuten.tech.mobile.miniapp.MiniApp
 import com.rakuten.tech.mobile.miniapp.MiniAppInfo
 import com.rakuten.tech.mobile.miniapp.MiniAppSdkConfig
-import com.rakuten.tech.mobile.miniapp.ads.AdMobDisplayer
 import com.rakuten.tech.mobile.miniapp.file.MiniAppCameraPermissionDispatcher
 import com.rakuten.tech.mobile.miniapp.file.MiniAppFileChooserDefault
 import com.rakuten.tech.mobile.miniapp.file.MiniAppFileDownloaderDefault
@@ -342,7 +341,6 @@ class MiniAppDisplayActivity : BaseActivity(), PreloadMiniAppWindow.PreloadMiniA
         miniAppMessageBridge = getMessageBridge(this) { onDevicePermissionResultCallback ->
             miniappPermissionCallback = onDevicePermissionResultCallback
         }
-        miniAppMessageBridge.setAdMobDisplayer(AdMobDisplayer(this@MiniAppDisplayActivity))
         miniAppMessageBridge.allowScreenOrientation(true)
 
         // setup UserInfoBridgeDispatcher

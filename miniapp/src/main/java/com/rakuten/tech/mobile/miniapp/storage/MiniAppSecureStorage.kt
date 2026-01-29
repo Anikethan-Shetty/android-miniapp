@@ -8,7 +8,7 @@ import com.rakuten.tech.mobile.miniapp.storage.database.MiniAppSecureDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import net.sqlcipher.database.SQLiteFullException
+import android.database.sqlite.SQLiteFullException
 import java.io.IOException
 import java.sql.SQLException
 

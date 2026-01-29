@@ -9,7 +9,7 @@ import com.rakuten.tech.mobile.miniapp.storage.database.DATABASE_SPACE_LIMIT_REA
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.runBlockingTest
-import net.sqlcipher.database.SQLiteFullException
+import android.database.sqlite.SQLiteFullException
 import org.amshove.kluent.*
 import org.junit.After
 import org.junit.Before

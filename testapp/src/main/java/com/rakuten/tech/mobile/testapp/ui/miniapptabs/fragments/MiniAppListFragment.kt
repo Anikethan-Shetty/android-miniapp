@@ -191,8 +191,8 @@ class MiniAppListFragment : BaseFragment(), MiniAppListener, OnSearchListener,
         // by default, search menu is hidden, show search menu here
         itemSearch.isVisible = true
 
-        val closeButton = searchView.findViewById<ImageView>(R.id.search_close_btn)
-        closeButton.setOnClickListener { resetSearchBox() }
+        val closeButton = searchView.findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
+        closeButton?.setOnClickListener { resetSearchBox() }
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -233,9 +233,9 @@ class MiniAppListFragment : BaseFragment(), MiniAppListener, OnSearchListener,
 
     private fun produceSearchResult(newText: String?): List<MiniAppInfo> {
         return fetchedMiniAppList.filter { info ->
-            val searchText = newText.toString().toLowerCase(Locale.ROOT)
-            info.displayName.toLowerCase(Locale.ROOT).contains(searchText) ||
-                    info.id.toLowerCase(Locale.ROOT).contains(searchText)
+            val searchText = newText.toString().lowercase(Locale.ROOT)
+            info.displayName.lowercase(Locale.ROOT).contains(searchText) ||
+                    info.id.lowercase(Locale.ROOT).contains(searchText)
         }
     }
 

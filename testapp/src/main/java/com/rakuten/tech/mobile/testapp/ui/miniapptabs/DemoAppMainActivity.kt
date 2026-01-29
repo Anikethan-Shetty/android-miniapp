@@ -22,7 +22,6 @@ import com.rakuten.tech.mobile.testapp.ui.miniapptabs.fragments.MiniAppDisplayFr
 import com.rakuten.tech.mobile.testapp.ui.miniapptabs.fragments.MiniAppListFragment
 import com.rakuten.tech.mobile.testapp.ui.miniapptabs.fragments.SettingsFragment
 import com.rakuten.tech.mobile.testapp.ui.settings.AppSettings
-import kotlinx.android.synthetic.main.mini_app_main_layout.*
 import kotlinx.coroutines.launch
 
 val miniAppIdAndViewMap = hashMapOf<Pair<Int, String>, MiniAppView>()
@@ -154,10 +153,10 @@ class DemoAppMainActivity : BaseActivity() {
     override val siteSection: String = this::class.simpleName ?: ""
 
     private fun changeTabMenu(page: Int) {
-        bottomNavigationView.selectedItemId = page
+        binding.bottomNavigationView.selectedItemId = page
     }
 
-    fun getCurrentSelectedId() = bottomNavigationView.selectedItemId
+    fun getCurrentSelectedId() = binding.bottomNavigationView.selectedItemId
 
     companion object {
         private const val PAGE_1 = R.id.nav_tab_0

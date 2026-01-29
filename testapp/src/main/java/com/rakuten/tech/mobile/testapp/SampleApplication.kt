@@ -1,7 +1,6 @@
 package com.rakuten.tech.mobile.testapp
 
 import android.app.Application
-import com.google.android.gms.ads.MobileAds
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.crashes.Crashes
 import com.rakuten.tech.mobile.miniapp.testapp.BuildConfig
@@ -15,8 +14,7 @@ class SampleApplication : Application() {
 
         // Initialize demo app's settings properties
         AppSettings.init(this)
-        // Enable AdMob
-        MobileAds.initialize(this)
+        // AdMob disabled for testapp
 
         // Enable microsoft's AppCenter Crash class for staging, rc and release builds
         if (BuildConfig.ENABLE_APPCENTER_CRASHLYTICS)

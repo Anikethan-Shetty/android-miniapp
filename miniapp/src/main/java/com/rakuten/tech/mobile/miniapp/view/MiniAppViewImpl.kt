@@ -100,6 +100,11 @@ internal class MiniAppViewImpl(
                             (miniAppParameters as MiniAppParameters.InfoParams).miniAppInfo
                         config = (miniAppParameters as MiniAppParameters.InfoParams).config
                     }
+                    is MiniAppParameters.UrlParams -> {
+                        // UrlParams not supported for loading from bundle
+                        onComplete(null, MiniAppSdkException("UrlParams not supported for loading from bundle"))
+                        return@launch
+                    }
                 }
                 miniAppViewHandler.createMiniAppViewFromBundle(
                     miniAppInfo = miniAppInfo,

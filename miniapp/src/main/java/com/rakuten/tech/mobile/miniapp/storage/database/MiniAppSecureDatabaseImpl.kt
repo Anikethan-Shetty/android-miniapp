@@ -7,7 +7,6 @@ import androidx.annotation.VisibleForTesting
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.rakuten.tech.mobile.miniapp.storage.util.MiniAppDatabaseEncryptionUtil
-import net.sqlcipher.database.SupportFactory
 import java.io.IOException
 import java.sql.SQLException
 
@@ -71,7 +70,7 @@ internal abstract class MiniAppSecureDatabaseImpl(
      * The passcode will be the MiniAppId which is the database name too.
      */
     private fun getSqliteOpenHelperFactory(): SupportSQLiteOpenHelper.Factory {
-        return SupportFactory(
+        return SQLCipherSupportFactory(
             MiniAppDatabaseEncryptionUtil.encryptPasscode(
                 context,
                 dbName // DB_NAME will be the passcode too.

@@ -4,11 +4,12 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import android.widget.RelativeLayout
+import androidx.appcompat.widget.AppCompatTextView
 import com.rakuten.tech.mobile.miniapp.testapp.R
 import com.rakuten.tech.mobile.testapp.analytics.DemoAppAnalytics
 import com.rakuten.tech.mobile.testapp.ui.settings.AppSettings
-import kotlinx.android.synthetic.main.custom_button_view_with_arrow.view.*
 
 /**
  * This is custom View with an icon, label and arrow.
@@ -31,23 +32,28 @@ class CustomButtonViewWithArrow @JvmOverloads constructor(
     init {
         LayoutInflater.from(context).inflate(R.layout.custom_button_view_with_arrow, this, true)
 
+        val tvLabel = findViewById<AppCompatTextView>(R.id.tv_label)
+        val tvDetails = findViewById<AppCompatTextView>(R.id.tv_details)
+        val imgArrowRight = findViewById<ImageView>(R.id.img_arrow_right)
+        val imgIcon = findViewById<ImageView>(R.id.img_icon)
+
         context.theme.obtainStyledAttributes(attrs, R.styleable.CustomButtonViewWithArrow, 0, 0)
             .let {
                 btnLabel = it.getString(R.styleable.CustomButtonViewWithArrow_titleLabel) ?: ""
                 btnDetails = it.getString(R.styleable.CustomButtonViewWithArrow_titleDetails) ?: ""
-                if(btnDetails == "") tv_details.visibility = View.GONE else tv_details.visibility = View.VISIBLE
+                if(btnDetails == "") tvDetails.visibility = View.GONE else tvDetails.visibility = View.VISIBLE
                 val isArrowEnable =
                     it.getBoolean(R.styleable.CustomButtonViewWithArrow_rightArrowEnable, true)
 
                 val iconRes = it.getDrawable(R.styleable.CustomButtonViewWithArrow_icon)
 
-                tv_label.text = btnLabel
-                tv_details.text = btnDetails
+                tvLabel.text = btnLabel
+                tvDetails.text = btnDetails
 
-                if (isArrowEnable) img_arrow_right.visibility =
-                    View.VISIBLE else img_arrow_right.visibility = View.INVISIBLE
+                if (isArrowEnable) imgArrowRight.visibility =
+                    View.VISIBLE else imgArrowRight.visibility = View.INVISIBLE
 
-                img_icon.background = iconRes
+                imgIcon.background = iconRes
                 it.recycle()
             }
 

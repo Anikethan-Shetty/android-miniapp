@@ -8,7 +8,7 @@ import com.rakuten.tech.mobile.miniapp.TEST_MA_ID
 import com.rakuten.tech.mobile.miniapp.TEST_STORAGE_VERSION
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import net.sqlcipher.database.SQLiteFullException
+import android.database.sqlite.SQLiteFullException
 import org.amshove.kluent.*
 import org.junit.After
 import org.junit.Assert.*

@@ -1,9 +1,10 @@
 apply from: '../config/android/library.gradle'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 
 android {
+    namespace 'com.rakuten.tech.mobile.miniapp'
     def numProperty = { key ->
         return System.getenv(key) ?: (project.hasProperty(key) ? project."$key" : "0")
     }
@@ -16,22 +17,18 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_17
     }
 
     testOptions {
         unitTests.returnDefaultValues = true
         unitTests.includeAndroidResources = true
     }
-}
-
-androidExtensions {
-    experimental = true
 }
 
 // Prevents test code compiled into binary.
@@ -73,7 +70,7 @@ dependencies {
     implementation "io.github.rakutentech.manifestconfig:manifest-config-annotations:$manifest_config"
 
     implementation "androidx.sqlite:sqlite-ktx:$sqlite_db"
-    implementation "net.zetetic:android-database-sqlcipher:$sqlcipher"
+    implementation "net.zetetic:sqlcipher-android:$sqlcipher"
 
     testImplementation "androidx.test.ext:junit:$androidx_test_ext"
     testImplementation "org.mockito:mockito-android:$mockito"
@@ -134,21 +131,11 @@ dokkaGfm.configure {
     }
 }
 
-apply from: '../config/publish/android.gradle'
-afterEvaluate {
-    publishing {
-        publications {
-            MiniApp(MavenPublication, androidArtifact())
-        }
-    }
-}
 def isSnapshot = project.version.contains('-')
 if (isSnapshot) {
     ext["MAVEN_CENTRAL_IS_SNAPSHOT"] = true
 }
-apply from: '../config/publish/maven-central.gradle'
 
 project.ext.docPublishing = [
         repoUri: 'git@github.com:rakutentech/android-miniapp.git'
 ]
-apply from: '../config/publish/documentation/gh-pages.gradle'

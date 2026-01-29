@@ -19,7 +19,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.rakuten.tech.mobile.miniapp.*
-import com.rakuten.tech.mobile.miniapp.ads.AdMobDisplayer
 import com.rakuten.tech.mobile.miniapp.file.MiniAppCameraPermissionDispatcher
 import com.rakuten.tech.mobile.miniapp.file.MiniAppFileChooserDefault
 import com.rakuten.tech.mobile.miniapp.file.MiniAppFileDownloaderDefault
@@ -325,7 +324,6 @@ class MiniAppDisplayFragment : BaseFragment(), PreloadMiniAppWindow.PreloadMiniA
         miniAppMessageBridge.setMiniAppCloseListener { withConfirmationAlert ->
             if (withConfirmationAlert) checkCloseAlert() else findNavController().navigateUp()
         }
-        miniAppMessageBridge.setAdMobDisplayer(AdMobDisplayer(activity))
         miniAppMessageBridge.allowScreenOrientation(true)
 
         // setup UserInfoBridgeDispatcher

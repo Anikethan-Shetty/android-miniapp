@@ -24,8 +24,6 @@ import com.rakuten.tech.mobile.testapp.ui.settings.SettingsProgressDialog
 import com.rakuten.tech.mobile.testapp.ui.settings.cache.MiniAppConfigData
 import com.rakuten.tech.mobile.testapp.ui.userdata.*
 import com.rakuten.tech.mobile.testapp.ui.userdata.ContactHelper.createRandomContactList
-import kotlinx.android.synthetic.main.settings_fragment.*
-import kotlinx.android.synthetic.main.settings_fragment.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

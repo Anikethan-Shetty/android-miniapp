@@ -12,7 +12,6 @@ import com.rakuten.tech.mobile.miniapp.testapp.databinding.PointsActivityBinding
 import com.rakuten.tech.mobile.testapp.helper.hideSoftKeyboard
 import com.rakuten.tech.mobile.testapp.ui.base.BaseActivity
 import com.rakuten.tech.mobile.testapp.ui.settings.AppSettings
-import kotlinx.android.synthetic.main.points_activity.*
 import java.lang.NumberFormatException
 
 class PointsActivity : BaseActivity() {
@@ -63,11 +62,11 @@ class PointsActivity : BaseActivity() {
     }
 
     private fun updatePreferences() {
-        var pointStandard = edtPointStandard.text.toString()
+        var pointStandard = binding.edtPointStandard.text.toString()
         if (pointStandard == "") pointStandard = "0"
-        var pointTimeLimited = edtPointTimeLimited.text.toString()
+        var pointTimeLimited = binding.edtPointTimeLimited.text.toString()
         if (pointTimeLimited == "") pointTimeLimited = "0"
-        var pointRakutenCash = edtPointRakutenCash.text.toString()
+        var pointRakutenCash = binding.edtPointRakutenCash.text.toString()
         if (pointRakutenCash == "") pointRakutenCash = "0"
         try {
             settings.points = Points(

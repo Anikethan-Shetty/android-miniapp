@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rakuten.tech.mobile.miniapp.testapp.R
+import androidx.navigation.ui.R as NavR
 
 /**
  * Manages the various graphs needed for a [BottomNavigationView].
@@ -139,10 +140,10 @@ private fun detachIfNotFirstFragment(
         // to it, creating the fixed started destination.
         fragmentManager.beginTransaction()
             .setCustomAnimations(
-                R.anim.nav_default_enter_anim,
-                R.anim.nav_default_exit_anim,
-                R.anim.nav_default_pop_enter_anim,
-                R.anim.nav_default_pop_exit_anim
+                NavR.anim.nav_default_enter_anim,
+                NavR.anim.nav_default_exit_anim,
+                NavR.anim.nav_default_pop_enter_anim,
+                NavR.anim.nav_default_pop_exit_anim
             )
             .attach(selectedFragment)
             .setPrimaryNavigationFragment(selectedFragment)
